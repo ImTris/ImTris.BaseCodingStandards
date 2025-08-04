@@ -1,0 +1,36 @@
+# DateTime issues - use UTC versions
+P:System.DateTime.Now;Use System.DateTime.UtcNow instead
+P:System.DateTimeOffset.Now;Use System.DateTimeOffset.UtcNow instead
+M:System.IO.File.GetCreationTime(System.String);Use GetCreationTimeUtc instead
+M:System.IO.File.GetLastAccessTime(System.String);Use GetLastAccessTimeUtc instead
+M:System.IO.File.GetLastWriteTime(System.String);Use GetLastWriteTimeUtc instead
+M:System.IO.FileInfo.GetCreationTime;Use GetCreationTimeUtc instead
+M:System.IO.FileInfo.GetLastAccessTime;Use GetLastAccessTimeUtc instead
+M:System.IO.FileInfo.GetLastWriteTime;Use GetLastWriteTimeUtc instead
+M:System.IO.Directory.GetCreationTime(System.String);Use GetCreationTimeUtc instead
+M:System.IO.Directory.GetLastAccessTime(System.String);Use GetLastAccessTimeUtc instead
+M:System.IO.Directory.GetLastWriteTime(System.String);Use GetLastWriteTimeUtc instead
+
+# Thread safety issues
+T:System.Random;Use ThreadStatic Random or System.Security.Cryptography.RandomNumberGenerator instead
+M:System.Threading.Thread.Sleep(System.Int32);Use Task.Delay instead for asynchronous waiting
+M:System.Threading.Thread.Abort;This is dangerous and can leave the application in an undefined state
+
+# Obsolete or problematic APIs
+M:System.String.Copy(System.String);Unnecessary in modern C#
+T:System.Web.HttpUtility.HtmlEncode(System.String);Use System.Net.WebUtility.HtmlEncode instead
+M:System.Convert.ToString(System.Int32,System.Int32);Use int.ToString() or string format methods
+M:System.Data.SqlClient.SqlCommand.ExecuteNonQuery;Use async version ExecuteNonQueryAsync
+M:System.Activator.CreateInstance;Use factory pattern or dependency injection instead
+M:System.Reflection.Assembly.LoadFrom;Can lead to assembly loading issues
+M:System.Diagnostics.Process.Start(System.String);Use overload with ProcessStartInfo for more control
+
+# Security concerns
+M:System.Xml.XmlDocument.Load(System.String);Vulnerable to XXE attacks, use XmlReader with appropriate settings
+M:System.Xml.Linq.XDocument.Load(System.String);Vulnerable to XXE attacks, use XmlReader with appropriate settings
+M:System.Data.SqlClient.SqlCommand.ExecuteScalar;Potential for SQL injection, use parameterized queries
+M:System.Data.SqlClient.SqlCommand.ExecuteReader;Potential for SQL injection, use parameterized queries
+
+# Performance issues
+M:System.Linq.Enumerable.Count;Can be expensive on large collections, use ICollection<T>.Count when possible
+M:System.Linq.Enumerable.ToList;Can cause unnecessary allocations, consider using only when needed

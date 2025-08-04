@@ -1,0 +1,28 @@
+<Project>
+    <PropertyGroup>
+        <!-- C# language settings -->
+        <LangVersion>latest</LangVersion>
+        <Nullable>enable</Nullable>
+        <ImplicitUsings>enable</ImplicitUsings>
+
+        <!-- Build settings -->
+        <Deterministic>true</Deterministic>
+        <Features>strict</Features>
+
+        <!-- Code quality analysis -->
+        <EnableNETAnalyzers>true</EnableNETAnalyzers>
+        <AnalysisMode>All</AnalysisMode>
+        <AnalysisLevel>latest</AnalysisLevel>
+        <EnforceCodeStyleInBuild>true</EnforceCodeStyleInBuild>
+        <ReportAnalyzer>true</ReportAnalyzer>
+
+        <!-- Suppress specific warnings -->
+        <NoWarn>$(NoWarn);CA1014</NoWarn>
+
+        <!-- Treat warnings as errors in CI builds -->
+        <TreatWarningsAsErrors Condition="'$(ContinuousIntegrationBuild)' == 'true'">true</TreatWarningsAsErrors>
+
+        <!-- Documentation -->
+        <GenerateDocumentationFile>true</GenerateDocumentationFile>
+    </PropertyGroup>
+</Project>
