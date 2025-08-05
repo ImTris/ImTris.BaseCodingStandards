@@ -1,0 +1,5 @@
+is_global = true
+global_level = 0
+
+# Sonar rule exclusions example
+dotnet_diagnostic.S1227.severity = none

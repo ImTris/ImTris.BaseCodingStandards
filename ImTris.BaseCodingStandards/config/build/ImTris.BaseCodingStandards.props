@@ -20,7 +20,8 @@
         <NoWarn>$(NoWarn)</NoWarn>
 
         <!-- Treat warnings as errors in CI builds -->
-        <TreatWarningsAsErrors Condition="'$(ContinuousIntegrationBuild)' == 'true'">true</TreatWarningsAsErrors>
+        <!-- <TreatWarningsAsErrors Condition="'$(ContinuousIntegrationBuild)' == 'true'">true</TreatWarningsAsErrors> -->
+        <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
 
         <!-- Documentation -->
         <GenerateDocumentationFile>false</GenerateDocumentationFile>

@@ -16,6 +16,7 @@
         <dependencies>
             <dependency id="Microsoft.VisualStudio.Threading.Analyzers" version="17.14.15" />
             <dependency id="Microsoft.CodeAnalysis.BannedApiAnalyzers" version="4.14.0" />
+            <dependency id="SonicAnalyzers.CSharp" version="1.15.0.120848"/>
         </dependencies>
     </metadata>
 
