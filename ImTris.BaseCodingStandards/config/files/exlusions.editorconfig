@@ -1,0 +1,15 @@
+is_global = true
+global_level = 0
+
+# Suppress XML documentation warnings
+dotnet_diagnostic.CS1591.severity = none
+
+# Suppress source-generated logging analyzer warnings (LoggerMessage generators)
+dotnet_diagnostic.CA1848.severity = none
+dotnet_diagnostic.EXTEXP0018.severity = none
+
+# Suppress globalization rules (unless you need them)
+dotnet_diagnostic.CA1311.severity = none
+
+# Suppress naming convention warnings for test methods
+dotnet_diagnostic.CA1707.severity = none

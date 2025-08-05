@@ -17,7 +17,7 @@
         <ReportAnalyzer>true</ReportAnalyzer>
 
         <!-- Suppress specific warnings -->
-        <NoWarn>$(NoWarn);CA1014</NoWarn>
+        <NoWarn>$(NoWarn)</NoWarn>
 
         <!-- Treat warnings as errors in CI builds -->
         <TreatWarningsAsErrors Condition="'$(ContinuousIntegrationBuild)' == 'true'">true</TreatWarningsAsErrors>
