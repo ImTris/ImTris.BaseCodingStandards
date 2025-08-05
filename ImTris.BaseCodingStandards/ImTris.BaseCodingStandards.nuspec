@@ -5,7 +5,10 @@
         <id>ImTris.BaseCodingStandards</id>
         <developmentDependency>true</developmentDependency>
         <description>Starting point for configuring DotNet coding standards</description>
-
+        <authors>Tristan Benschop</authors>
+        <license type="expression">MIT</license>
+        <tags>coding-standards analyzers editorconfig</tags>
+        
         <!-- The version is set when building the package -->
         <version>$version$</version>
 

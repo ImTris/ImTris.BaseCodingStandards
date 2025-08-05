@@ -11,7 +11,7 @@
 
         <!-- Code quality analysis -->
         <EnableNETAnalyzers>true</EnableNETAnalyzers>
-        <AnalysisMode>All</AnalysisMode>
+        <AnalysisMode>Recommended</AnalysisMode>
         <AnalysisLevel>latest</AnalysisLevel>
         <EnforceCodeStyleInBuild>true</EnforceCodeStyleInBuild>
         <ReportAnalyzer>true</ReportAnalyzer>
@@ -23,6 +23,6 @@
         <TreatWarningsAsErrors Condition="'$(ContinuousIntegrationBuild)' == 'true'">true</TreatWarningsAsErrors>
 
         <!-- Documentation -->
-        <GenerateDocumentationFile>true</GenerateDocumentationFile>
+        <GenerateDocumentationFile>false</GenerateDocumentationFile>
     </PropertyGroup>
 </Project>
