@@ -25,5 +25,9 @@
 
         <!-- Documentation -->
         <GenerateDocumentationFile>false</GenerateDocumentationFile>
+        
+        <ItemGroup>
+            <GlobalAnalyzerConfigFiles Include="$(MSBuildThisFileDirectory)\..\files\.globalconfig" />
+        </ItemGroup>
     </PropertyGroup>
 </Project>

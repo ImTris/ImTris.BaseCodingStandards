@@ -2,8 +2,8 @@
     <!-- Register the editorconfig files to the project -->
     <ItemGroup>
         <EditorConfigFiles Include="$(MSBuildThisFileDirectory)\..\files\*.editorconfig" />
+        <GlobalAnalyzerConfigFiles Include="$(MSBuildThisFileDirectory)\..\files\*.editorconfig" />
     </ItemGroup>
-
     <!-- Banned Symbols -->
     <PropertyGroup>
         <IncludeDefaultBannedSymbols Condition="$(IncludeDefaultBannedSymbols) == ''">true</IncludeDefaultBannedSymbols>
@@ -14,4 +14,15 @@
                          Condition="$(IncludeDefaultBannedSymbols) == 'true'"
                          Visible="false" />
     </ItemGroup>
+
+    <Target Name="FormatCodeOnBuild" BeforeTargets="BeforeBuild">
+        <Message Text="Formatting code..." Importance="high" />
+        <Exec Command="dotnet format"
+              WorkingDirectory="$(MSBuildProjectDirectory)"
+              ContinueOnError="false">
+            <Output TaskParameter="ExitCode" PropertyName="FormatExitCode" />
+        </Exec>
+        <Error Text="Code formatting failed with exit code $(FormatExitCode)"
+               Condition="'$(FormatExitCode)' != '0'" />
+    </Target>
 </Project>
